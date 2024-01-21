@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Irigare</string>
+
+    <string name="textBtnConnect">Conecteaza</string>
+    <string name="textBtnDisconnect">Deconecteaza</string>
+
+    <string name="changePompAutoToOn">Porneste</string>
+    <string name="changePompAutoToOff">Opreste</string>
+
+    <string name="pompIsOff">Pompa este oprita</string>
+    <string name="pompIsOn">Pompa este pornita</string>
+    <string name="autoIsOff">Modul autonom este oprit</string>
+    <string name="autoIsOn">Modul autonom este pornit</string>
+
+    <string name="textConstIPServer">Introduceti IP-ul serverului</string>
+</resources>
