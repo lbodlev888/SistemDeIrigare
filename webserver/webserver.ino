@@ -34,7 +34,8 @@ void setup()
 String header;
 int lastUpdate = millis(), lastMillis = 0;
 float temp, humid, humidApa;
-bool autonom = false;
+bool autonom = false, changeStart = false;
+int start = 0;
 
 void loop()
 {
@@ -95,14 +96,16 @@ void loop()
     header = "";
     client.stop();
   }
-  if(autonom && millis() >= lastMillis) {
-    if(analogRead(A0) < 200) {
-      digitalWrite(pompa, HIGH);
-      int start = millis();
-      if(millis() >= start + 15000) {
-        digitalWrite(pompa, LOW);
-        lastMillis = millis() + 1800000;
-      }
+  if(autonom && millis() >= lastMillis && analogRead(A0) < 200) {
+    if(updateStart) {
+      start = millis();
+      updateStart = false;
+    }
+    digitalWrite(pompa, HIGH);
+    if(millis() >= start + 15000) {
+      digitalWrite(pompa, LOW);
+      lastMillis = millis() + 1800000;
+      updateStart = true;
     }
   }
 }
